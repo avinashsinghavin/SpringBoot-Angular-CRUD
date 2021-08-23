@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 mt-5" style="text-align: center">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Full Name</span>
+          <input type="text" class="form-control" placeholder="Full Name" formControlName="name"/>
+        </div>
+        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+          <div *ngIf="f.name.errors.required">Name is required.</div>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Email Id</span>
+          <input type="text" class="form-control" placeholder="Email Id" formControlName="email" />
+          <span class="input-group-text" id="basic-addon2">@example.com</span>
+        </div>
+        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+          <div *ngIf="f.email.errors.required">Email is required.</div>
+          <div *ngIf="f.email.errors.email">Please, enter valid email address.</div>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Mobile No.</span>
+          <input type="text" formControlName="mobile" class="form-control" placeholder="Mobile No." />
+        </div>
+        <div *ngIf="f.mobile.touched && f.mobile.invalid" class="alert alert-danger">
+          <div *ngIf="f.mobile.errors.required">Mobile No is required.</div>
+          <div *ngIf="f.mobile.errors.mobile">Please, enter valid Mobile No.</div>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">State</label>
+          <select formControlName="state" class="form-select" id="inputGroupSelect01">
+            <option *ngFor="let level of stateList" [ngValue]="level">
+                {{level }}
+              </option>
+          </select>
+        </div>
+        <div *ngIf="f.state.touched && state" class="alert alert-danger">
+          <div *ngIf="state">State is required.</div>
+        </div>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Select Gender</label
+          >
+          &nbsp;&nbsp;&nbsp;
+          <label class="mt-2">
+            <input type="radio" value="Male" formControlName="gender">
+            &nbsp;<span>Male</span>
+          </label>
+          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          <label class="mt-2">
+            <input type="radio" value="Female" formControlName="gender">
+              &nbsp;<span>Female</span>
+          </label>
+        </div>
+        <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
+          <div *ngIf="f.gender.errors.required">Gender is required.</div>
+        </div>
+
+        <h6>Select your Language</h6>
+        <div class="input-group mb-3">
+          <div class="col-3 text-left" *ngFor="let data of checkboxArray;">
+            <label>
+              <input type="checkbox" [checked]="getCheck(data)" [value]="data" (change)="onCheckboxChange($event)" />
+              {{data}}
+            </label>
+          </div>
+        </div>
+        <div *ngIf="f.skills.touched && skills" class="alert alert-danger">
+          <div *ngIf="skills">Select at least one Skill</div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="file"(change)="setFile($event)" placeholder="Profile Image" />
+
+        </div>
+        <div *ngIf="f.photoPath.touched && f.photoPath.invalid" class="alert alert-danger">
+          <div *ngIf="f.photoPath.errors.required">Select Photo</div>
+        </div>
+
+        <button class="btn btn-primary mt-3 mb-5" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
