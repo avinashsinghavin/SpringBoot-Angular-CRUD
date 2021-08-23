@@ -1,0 +1,32 @@
+package com.example.backend.entity;
+
+public enum State {
+    Andhra_Pradesh,
+    Arunachal_Pradesh,
+    Assam,
+    Bihar,
+    Chhattisgarh,
+    Goa,
+    Gujarat,
+    Haryana,
+    Himachal_Pradesh,
+    Jharkhand,
+    Karnataka,
+    Kerala,
+    Madhya_Pradesh,
+    Maharashtra,
+    Manipur,
+    Meghalaya,
+    Mizoram,
+    Nagaland,
+    Odisha,
+    Punjab,
+    Rajasthan,
+    Sikkim,
+    Tamil_Nadu,
+    Telangana,
+    Tripura,
+    Uttarakhand,
+    Uttar_Pradesh,
+    West_Bengal
+}

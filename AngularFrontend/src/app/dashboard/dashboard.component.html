@@ -1,0 +1,20 @@
+<table class="table  table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let el of tableData; let i=index">
+      <th scope="row">{{ el.id }}</th>
+      <td>{{ el.name }}</td>
+      <td>{{ el.email }}</td>
+      <td>{{ el.mobile }}</td>
+      <td>{{ el.state }}</td>
+      <td>{{ el.gender }}</td>
+      <td>{{ el.skills }}</td>
+      <td> <button type="button" (click)="edit(i)" class="btn btn-outline-info">Edit</button> </td>
+    </tr>
+  </tbody>
+</table>
+
